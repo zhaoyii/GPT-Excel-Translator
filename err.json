@@ -1,1 +1,0 @@
-[{"a": "监视服务器\n设置工作", "b": "桌面\n图标\n操作确认", "c": "Desktop", "d": "・运行以下NNM图标进行确认。\n　・NNM控制台\n　・NNM拓扑地图\n　・NNM事件\n・在NNM登录界面中输入以下帐户信息并登录。\n　用户名：system\n　密码：Daifuku00\n・运行hosts图标，选择应用程序将显示\n　选择[Notepad]并单击[OK]。\n", "e": "・使用NNM的3个图标应显示NNM登录界面。\n\n\n\n・使用system帐户可以登录到NNM，登录后应\n　显示设置界面、地图和自定义事件。\n\n・应打开[hosts]文件。\n", "f": NaN, "g": NaN, "h": NaN, "i": NaN}]
