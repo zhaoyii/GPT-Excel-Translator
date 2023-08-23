@@ -10,7 +10,7 @@ Using the GPT API to translate text within Excel spreadsheets. Input a spreadshe
 
 ## Installation & Setup
 1. 执行`poetry install`命令安装.
-2. 使用`pip install pandas openai python-dotenv openpyxl`命令安装。
+2. 使用`pip install pandas openai python-dotenv openpyxl fire`命令安装。
 
 ## Usage
 **设置环境变量**
