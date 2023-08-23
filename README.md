@@ -25,19 +25,24 @@ OPENAI_API_KEY=your_openai_api_key
 # HTTPS_PROXY=127.0.0.1:8080
 ```
 
-直接在命令行执行便可翻译，目前仅支持日文翻译成中文。
+直接在命令行执行便可翻译。
 ```
-python main.py input=example.xlsx batch_size=3
+python main.py --input_table_name=example.xlsx --output_table_name=output.xlsx  --batch_size=3 --origin_language=Japanese --target_language=Chinese
 ```
 如果在翻译过程中遇到错误，不用担心，再次执行`python main.py`即可。**程序会接着从上次翻译失败的地方开始执行**。由于 GPT 接口返回的数据，有一定概率返回错误的格式，导致程序解析错误，或者将数据输出到表格时产生错误。
 
 **命令行参数**
-- `input`：输入的表格文件，默认值`example.xlsx`
-- `batch_size`：每次翻译的行数，默认值`3`。建议不要设置太大，否则翻译失败浪费`token`
-- `output`：输出的表格文件，默认值是`input`文件名加上`output.`前缀
+- input_table_name (str): 输入Excel文件的路径和名称，默认为"example.xlsx"。
+            该文件应该包含待翻译的内容。
+- output_table_name (str): 输出Excel文件的路径和名称，默认为"output.xlsx"。
+    该文件将包含翻译后的内容。如果文件不存在，它会被创建。
+- batch_size (int): 每一批次需要翻译的记录数量，默认为3。这有助于在处理大量记录时提高效率。
 
-**输出参数**
-- `err.json`：每次翻译后 gpt 输出的文本，记录在`err.json`中。如果发生 gpt 返回错误的文本格式，可通过`err.json`排查。
+- origin_language (str): 待翻译内容的原始语言，默认为"Japanese"。
+- target_language (str): 目标语言，即翻译后的语言，默认为"Chinese"。
 
-为什么要这么做？指令使 gpt 返回 json 格式的数据，这样利于程序将数据输出到表格中，保证格式正确。但 gpt 有时会有小概率返回错误的格式，所以需要记录到`err.json`中。
+**错误日志**
+- `error.log`：每次翻译后 gpt 输出的文本，记录在`error.log`中。如果发生 gpt 返回错误的文本格式，可通过`error.log`排查。
+
+为什么要这么做？指令使 gpt 返回 json 格式的数据，这样利于程序将数据输出到表格中，保证格式正确。但 gpt 有时会有小概率返回错误的格式，所以需要记录到`error.log`中。
 
